@@ -30,6 +30,13 @@ jobs:
           import platform
           print(platform.processor())
 
+      - name: step4 - useful predefined github variables
+        run: |
+          echo "github commit that triggerd the action: $GITHUB_SHA"
+          echo "user and repository name: $GITHUB_REPOSITORY"
+          echo "workspace dir: $GITHUB_WORKSPACE"
+          echo "token to authenticate your github repo: ${{github.token}}"
+
   # <job 2> 'run-shell-command'
   run-windows-command:
     runs-on: windows-latest
