@@ -12,17 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     # list of steps to perform
     steps:
+      # predefined github action
+      - name: step0 - clone repo, cd to it
+        uses: actions/checkout@v1
+
       - name: step1 - print messg
         run: echo "Hello World"
+
       - name: step2 - multiline script
         run: |
           node -v
           npm -v
+
       - name: step3 - python command
+        shell: python
         run: |
           import platform
           print(platform.processor())
-        shell: python
 
   # <job 2> 'run-shell-command'
   run-windows-command:
