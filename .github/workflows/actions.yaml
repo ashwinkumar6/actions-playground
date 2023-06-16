@@ -1,0 +1,22 @@
+name: Actions workflow
+
+on: [push]
+
+jobs:
+  run-action-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step 1 - simple action
+        # refer to this step using it's id
+        id: greet
+        # uses takes a reference to a action from same repo or external public repo
+        # <user>/<repo>/<branch> or <version> or <commit sha> (recommended)
+        uses: actions/hello-world-javascript-action@v1
+        # provide an input to a action
+        with:
+          # input key - specified in the action
+          who-to-greet: Ashwin
+      - name: step 2 - log getting time
+        # access github provided variables
+        # ${{ steps.<step-id>.outputs.<action output variable name> }}
+        run: echo "${{ steps.greet.outputs.time }}"
