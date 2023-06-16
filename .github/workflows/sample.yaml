@@ -18,3 +18,8 @@ jobs:
         run: |
           node -v
           npm -v
+      - name: step3 - python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
