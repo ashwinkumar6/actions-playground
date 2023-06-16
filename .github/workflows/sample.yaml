@@ -27,6 +27,7 @@ jobs:
   # <job 2> 'run-shell-command'
   run-windows-command:
     runs-on: windows-latest
+    needs: ["run-shell-command"]
     steps:
       - name: step 1 - directory powerShell - default
         run: Get-Location
